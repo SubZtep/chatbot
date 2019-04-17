@@ -13,25 +13,25 @@ export default class AIBot extends BotBase {
   private sessionPath!: string
   private botUserId!: string
   private discordClient!: Client
-  private dialogClient!: SessionsClient
+  private dialogflowClient!: SessionsClient
 
   constructor(config: AIBotConfig) {
     super(config)
   }
 
   startup(): void {
-    this.dialogConnect()
+    this.dialogflowConnect()
     this.discordConnect()
   }
 
   /**
    * Connect to Dialoglow
    */
-  private dialogConnect(): void {
-    this.dialogClient = new dialogflow.SessionsClient({
+  private dialogflowConnect(): void {
+    this.dialogflowClient = new dialogflow.SessionsClient({
       keyFilename: this.config.KEY_FILE
     })
-    this.sessionPath = this.dialogClient.sessionPath(this.config.PROJECT_ID as string, uuidv4())
+    this.sessionPath = this.dialogflowClient.sessionPath(this.config.PROJECT_ID as string, uuidv4())
   }
 
   /**
@@ -106,7 +106,7 @@ export default class AIBot extends BotBase {
         }
       }
     }
-    const responses = await this.dialogClient.detectIntent(request)
+    const responses = await this.dialogflowClient.detectIntent(request)
     if (!responses[0].queryResult.fulfillmentText) {
       throw "No response"
     }

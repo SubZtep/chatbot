@@ -9,7 +9,10 @@
     "build": "tsc",
     "start": "node dist",
     "x": "tsc && node ./dist/index.js",
-    "dev": "tsc --watch & nodemon ./dist/index.js"
+    "dev": "tsc --watch & nodemon ./dist/index.js",
+    "lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
+    "lint:fix": "eslint --fix --ext .js,.ts --ignore-path .gitignore .",
+    "lint:config": "eslint --print-config"
   },
   "dependencies": {
     "chalk": "^2.4.2",
