@@ -23,12 +23,15 @@ figlet(
     console.log(chalk.bgBlack.red(data as string))
 
     // Init AIBot
-    const cfg: DotenvParseOutput = dotenv.config().parsed as DotenvParseOutput
-    let bot = new AIBot((cfg as unknown) as AIBotConfig)
+    const rawConfig: DotenvParseOutput = dotenv.config().parsed as DotenvParseOutput
+    const config = (rawConfig as unknown) as AIBotConfig
+    let bot = new AIBot(config)
 
     // Init dependencies
     const cmds = new Commands()
-    cmds.picPath = path.join(__dirname, "../assets/pictures/sonia_oobt.jpg")
+    if (config.PIC_FILE) {
+      cmds.picPath = path.join(__dirname, "../", config.PIC_FILE)
+    }
 
     // Add dependencies
     bot.addDepi(Dependency.Command, cmds)

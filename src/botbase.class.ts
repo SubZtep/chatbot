@@ -3,7 +3,7 @@ import chalk from "chalk"
 import AIBotConfig from "./models/aibotconfig"
 import Depi from "./depi.class"
 export default abstract class BotBase extends Depi {
-  protected config!: AIBotConfig
+  public config!: AIBotConfig
   protected loadAnimInterval!: NodeJS.Timeout
 
   constructor(config: AIBotConfig) {
@@ -39,7 +39,6 @@ export default abstract class BotBase extends Depi {
 
   /**
    * Try to fix invalid config
-   *
    * @param config Raw config parameters
    * @returns Proper config
    */

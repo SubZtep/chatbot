@@ -79,7 +79,6 @@ export default class AIBot extends BotBase {
 
   /**
    * Writing answer with delays to copy human behaviour
-   *
    * @param answer Answer text
    */
   writeAnswer(answer: string, channel: DMChannel): void {
@@ -94,12 +93,10 @@ export default class AIBot extends BotBase {
 
   /**
    * Try to get reply message to user
-   *
    * @param msg
    * @returns Reply message
    */
   protected async getAnswer(msg: string): Promise<string> {
-    console.log("this.sessionPath", this.sessionPath)
     const request: DetectIntentRequest = {
       session: this.sessionPath,
       queryInput: {

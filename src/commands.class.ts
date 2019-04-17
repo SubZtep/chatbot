@@ -7,11 +7,19 @@ export default class Commands {
   public channel!: DMChannel
   public user!: User
 
+  /**
+   * Set the communication channel
+   * @param channel Channel object
+   */
   public setChannel(channel: DMChannel): Commands {
     this.channel = channel
     return this
   }
 
+  /**
+   * Set partner user
+   * @param user Chat with this user
+   */
   public setUser(user: User): Commands {
     this.user = user
     return this
@@ -47,8 +55,14 @@ export default class Commands {
   }
 
   public cmdPic() {
-    const buffer = fs.readFileSync(this.picPath)
-    const attachment = new Attachment(buffer, path.basename(this.picPath))
-    this.channel.send(attachment)
+    if (this.picPath) {
+      const buffer = fs.readFileSync(this.picPath)
+      if (buffer) {
+        const attachment = new Attachment(buffer, path.basename(this.picPath))
+        if (attachment) {
+          this.channel.send(attachment)
+        }
+      }
+    }
   }
 }
