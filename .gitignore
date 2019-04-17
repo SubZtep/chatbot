@@ -1,4 +1,5 @@
 .env
 assets/dialogflow/
+assets/pictures/
 dist/
 node_modules/

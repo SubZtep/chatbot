@@ -20,8 +20,9 @@ Discord chatbot using Dialogflow agent. After start it send a message to the con
 8. Run `yarn build` for build project.
 9. Run `yarn start` for start BOT.
 
-## BOT Command
+## BOT Commands
 
-| Chat Message | Description |
-| ------------ | ----------- |
-| `!die`       | Kill BOT    |
+| Chat Message | Description    |
+| ------------ | -------------- |
+| `!die`       | Kill BOT       |
+| `!pic`       | Send a picture |
