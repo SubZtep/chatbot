@@ -26,3 +26,7 @@ Discord chatbot using Dialogflow agent. After start it send a message to the con
 | ------------ | -------------- |
 | `!die`       | Kill BOT       |
 | `!pic`       | Send a picture |
+
+## License
+
+MIT
