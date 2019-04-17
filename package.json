@@ -1,0 +1,32 @@
+{
+  "name": "sonia",
+  "version": "1.0.0",
+  "description": "bot",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist",
+    "x": "tsc && node ./dist/index.js",
+    "dev": "tsc --watch & nodemon ./dist/index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "dialogflow": "^0.8.2",
+    "discord.js": "^11.4.2",
+    "dotenv": "^7.0.0",
+    "figlet": "^1.2.1",
+    "readline-sync": "^1.4.9",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/dialogflow": "^0.6.8",
+    "@types/node": "^11.13.4",
+    "@typescript-eslint/parser": "^1.6.0",
+    "eslint": "^5.16.0",
+    "nodemon": "^1.18.11",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.4.3"
+  }
+}
