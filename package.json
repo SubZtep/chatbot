@@ -20,8 +20,10 @@
     "discord.js": "^11.4.2",
     "dotenv": "^7.0.0",
     "figlet": "^1.2.1",
+    "logs": "^1.5.1",
     "readline-sync": "^1.4.9",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@types/dialogflow": "^0.6.8",

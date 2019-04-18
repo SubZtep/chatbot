@@ -45,7 +45,7 @@ export default class AIBot extends BotBase {
     this.discordClient.on("ready", async () => {
       this.botUserId = this.discordClient.user.id
       clearInterval(this.loadAnimInterval)
-      console.log(chalk.red.inverse(`\rLogged in as ${this.discordClient.user.tag}!`))
+      this.logger.info(chalk.red.inverse(`\rLogged in as ${this.discordClient.user.tag}!`))
       try {
         const user: User = await this.discordClient.fetchUser(this.config.CHAT_WITH_USER_ID)
         const channel: DMChannel = await user.createDM()
@@ -61,7 +61,7 @@ export default class AIBot extends BotBase {
       if ((this.depi(Dependency.Command) as Commands).run(message.content)) return
 
       // Print last message
-      console.log(chalk.reset.magenta(message.author.username), message.content)
+      this.logger.info("%s %s", chalk.reset.magenta(message.author.username), message.content)
 
       // If last message is from user try to answer
       if (message.author.id !== this.botUserId) {

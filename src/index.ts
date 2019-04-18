@@ -23,7 +23,7 @@ figlet(
     console.log(chalk.bgBlack.red(data as string))
 
     // Init AIBot
-    const rawConfig: DotenvParseOutput = dotenv.config().parsed as DotenvParseOutput
+    const rawConfig = dotenv.config().parsed as DotenvParseOutput
     const config = (rawConfig as unknown) as AIBotConfig
     let bot = new AIBot(config)
 
