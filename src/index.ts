@@ -25,7 +25,7 @@ figlet(
     // Init AIBot
     const rawConfig = dotenv.config().parsed as DotenvParseOutput
     const config = (rawConfig as unknown) as AIBotConfig
-    let bot = new AIBot(config)
+    const bot = new AIBot(config)
 
     // Init dependencies
     const cmds = new Commands()

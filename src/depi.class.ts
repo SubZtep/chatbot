@@ -1,5 +1,4 @@
 import Dependency from "./models/dependency"
-import Commands from "./commands.class"
 
 export default abstract class Depi {
   private dependencies: Map<string, object> = new Map<string, object>()
@@ -24,10 +23,10 @@ export default abstract class Depi {
    * @param name Dependency name
    * @returns Dependency
    */
-  public depi(name: Dependency): any | undefined {
+  public depi<T>(name: Dependency): T {
     if (this.dependencies.has(name)) {
-      return this.dependencies.get(name) as Commands
+      return (this.dependencies.get(name) as unknown) as T
     }
-    return undefined
+    throw new Error(`Dependency ${name} not found.`)
   }
 }

@@ -25,7 +25,7 @@ export default class AIBot extends BotBase {
   }
 
   /**
-   * Connect to Dialoglow
+   * Connect to Dialogflow
    */
   private dialogflowConnect(): void {
     this.dialogflowClient = new dialogflow.SessionsClient({
@@ -50,7 +50,9 @@ export default class AIBot extends BotBase {
         const user: User = await this.discordClient.fetchUser(this.config.CHAT_WITH_USER_ID)
         const channel: DMChannel = await user.createDM()
         channel.send(this.welcomeMessage)
-        ;(this.depi(Dependency.Command) as Commands).setChannel(channel).setUser(user)
+        this.depi<Commands>(Dependency.Command)
+          .setChannel(channel)
+          .setUser(user)
       } catch (err) {
         throw err
       }
@@ -58,7 +60,7 @@ export default class AIBot extends BotBase {
 
     // Received a new message
     this.discordClient.on("message", async (message: any) => {
-      if ((this.depi(Dependency.Command) as Commands).run(message.content)) return
+      if (this.depi<Commands>(Dependency.Command).run(message.content)) return
 
       // Print last message
       this.logger.info("%s %s", chalk.reset.magenta(message.author.username), message.content)
