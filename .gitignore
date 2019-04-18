@@ -1,5 +1,7 @@
 .env
-assets/dialogflow/
-assets/pictures/
-dist/
+assets/dialogflow/*
+assets/pictures/*
+dist/*
+logs/*
 node_modules/
+!/**/.gitkeep
