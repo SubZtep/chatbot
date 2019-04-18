@@ -3,7 +3,6 @@
  */
 export default interface AIBotConfig {
   DISCORD_TOKEN: string
-  LANGUAGE_CODE: string
   PROJECT_ID: string
   KEY_FILE: string
   PIC_FILE?: string

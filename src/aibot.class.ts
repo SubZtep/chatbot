@@ -1,6 +1,6 @@
 import dialogflow, { SessionsClient, DetectIntentRequest } from "dialogflow"
 import Discord, { Client, User, DMChannel } from "discord.js"
-import uuidv4 from "uuid"
+import uuidv1 from "uuid"
 import chalk from "chalk"
 import BotBase from "./botbase.class"
 import { rand } from "./utils"
@@ -31,7 +31,7 @@ export default class AIBot extends BotBase {
     this.dialogflowClient = new dialogflow.SessionsClient({
       keyFilename: this.config.KEY_FILE
     })
-    this.sessionPath = this.dialogflowClient.sessionPath(this.config.PROJECT_ID as string, uuidv4())
+    this.sessionPath = this.dialogflowClient.sessionPath(this.config.PROJECT_ID as string, uuidv1())
   }
 
   /**
@@ -57,7 +57,7 @@ export default class AIBot extends BotBase {
     })
 
     // Received a new message
-    this.discordClient.on("message", async message => {
+    this.discordClient.on("message", async (message: any) => {
       if ((this.depi(Dependency.Command) as Commands).run(message.content)) return
 
       // Print last message
@@ -88,7 +88,7 @@ export default class AIBot extends BotBase {
         channel.stopTyping()
         channel.send(answer)
       }, rand(3) * 1000)
-    }, rand(1, 0) * 1000)
+    }, rand(3, 0) * 500)
   }
 
   /**
@@ -102,7 +102,7 @@ export default class AIBot extends BotBase {
       queryInput: {
         text: {
           text: msg,
-          languageCode: this.config.LANGUAGE_CODE
+          languageCode: "en"
         }
       }
     }

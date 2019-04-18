@@ -4,7 +4,6 @@ import chalk from "chalk"
 import { createLogger, Logger, format, transports } from "winston"
 import AIBotConfig from "./models/aibotconfig"
 import Depi from "./depi.class"
-import { ZERO } from "long"
 import winston = require("winston")
 export default abstract class BotBase extends Depi {
   public config!: AIBotConfig
