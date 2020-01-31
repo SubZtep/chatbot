@@ -20,7 +20,7 @@
     "discord.js": "^11.4.2",
     "dotenv": "^7.0.0",
     "figlet": "^1.2.1",
-    "readline-sync": "^1.4.9",
+    "readline-sync": "^1.4.10",
     "uuid": "^3.3.2",
     "winston": "^3.2.1"
   },
