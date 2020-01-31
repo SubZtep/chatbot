@@ -18,7 +18,7 @@
     "chalk": "^2.4.2",
     "dialogflow": "^0.8.2",
     "discord.js": "^11.4.2",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.2.0",
     "figlet": "^1.2.1",
     "readline-sync": "^1.4.9",
     "uuid": "^3.3.2",
